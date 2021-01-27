@@ -2,15 +2,12 @@ import React, { useState } from 'react';
 import { StyleSheet, View, TextInput, Text, Button, FlatList } from 'react-native';
 
 
-export default function HomeScreen(props) {
+export default function HomeScreen({ navigation }) {
 
     const [firstNumber, setFirstNumber] = useState('');
     const [secondNumber, setSecondNumber] = useState('');
     const [message, setMessage] = useState('Result: ');
     const [data, setData] = useState([]);
-
-    const { navigate } = props.navigation;
-
 
     const Sum = () => {
         var N1 = parseInt(firstNumber);
@@ -75,8 +72,10 @@ export default function HomeScreen(props) {
                     <Button title="-" onPress={Subtraction} />
                 </View>
                 <View style={styles.historyButton}>
-                    <Button title="History" onPress={() => navigate('History', { data: data })}
-                    />
+                    <Button title="History" onPress={() => navigation.navigate('History', { data })}>
+
+                    </Button>
+                    
                 </View>
             </View>
         </View>

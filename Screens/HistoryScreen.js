@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { View, StyleSheet, Text, FlatList, Button } from "react-native";
 
-export default function HistoryScreen(props) {
+export default function HistoryScreen({ route }) {
 
-    const { params } = props.navigation.state;
+    const { data } = route.params;
 
     return (
         <View style={styles.container}>
             <Text>History</Text>
             <FlatList
-                data={params.data}
+                data={data}
                 renderItem={({ item }) =>
                     <Text>{item.key}</Text>}
             />
